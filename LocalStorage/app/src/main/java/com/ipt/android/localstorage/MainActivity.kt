@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
 
 
         btnSave1.setOnClickListener {
+            // escrita usando o sharedPreferences
             val sharedPreferences = getPreferences(MODE_PRIVATE)
             val editor: SharedPreferences.Editor = sharedPreferences.edit()
             editor.putString("NOME", "Paulo")
@@ -50,6 +51,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnLoad1.setOnClickListener {
+            // leitura usando o sharedPreferences
             val sharedPreferences = getPreferences(MODE_PRIVATE)
             val nome = sharedPreferences.getString("NOME","Sem Nome")
             val idade = sharedPreferences.getInt("IDADE", 0)
@@ -57,6 +59,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnSave2.setOnClickListener {
+            // escrita usando o sharedPreferences
             val sharedPreferencesNomes = getSharedPreferences("nomes.dat", MODE_PRIVATE)
             val sharedPreferencesIdades = getSharedPreferences("idades.dat", MODE_PRIVATE)
             val editorNomes: SharedPreferences.Editor = sharedPreferencesNomes.edit()
@@ -69,6 +72,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnLoad2.setOnClickListener {
+            // leitura usando o sharedPreferences
             val sharedPreferencesNomes = getSharedPreferences("nomes.dat", MODE_PRIVATE)
             val sharedPreferencesIdades = getSharedPreferences("idades.dat", MODE_PRIVATE)
             val nome = sharedPreferencesNomes.getString("NOME","Sem Nome")
@@ -77,6 +81,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnSave3.setOnClickListener {
+            // escrita no internal Storage
             val directory: File  = getFilesDir()
             val file: File  = File(directory, "dados.txt")
             val fo:FileOutputStream = FileOutputStream(file)
@@ -89,6 +94,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnLoad3.setOnClickListener {
+            // leitura do internal Storage
             val directory: File  = getFilesDir()
             val file: File  = File(directory, "dados.txt")
             try {
@@ -105,6 +111,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnSave4.setOnClickListener {
+            // escrita no external Storage
             val directory: File  = Environment.getExternalStorageDirectory()
             val file: File  = File(directory, "dados.txt")
             val fo:FileOutputStream = FileOutputStream(file)
@@ -117,6 +124,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnLoad4.setOnClickListener {
+            // leitura do external Storage
             val directory: File  = Environment.getExternalStorageDirectory()
             val file: File  = File(directory, "dados.txt")
             try {
@@ -133,6 +141,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnSave5.setOnClickListener {
+            // escrita na cache
             val directory: File  = getCacheDir()
             val file: File  = File(directory, "dados.txt")
             val fo:FileOutputStream = FileOutputStream(file)
@@ -145,6 +154,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnLoad5.setOnClickListener {
+            // leitura da cache
             val directory: File  = getCacheDir()
             val file: File  = File(directory, "dados.txt")
             try {
